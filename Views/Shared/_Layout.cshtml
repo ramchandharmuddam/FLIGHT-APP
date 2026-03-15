@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Flight</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Pushes content below fixed navbar */
+        .page-body {
+            flex: 1;
+            margin-top: 70px;
+        }
+
+        /* Active nav link style */
+        .nav-link.active {
+            color: #ffffff !important;
+            font-weight: 700;
+            border-bottom: 3px solid white;
+            padding-bottom: 2px;
+        }
+
+        /* Default nav link color */
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #c0392b;
+            color: white;
+            padding: 35px 0 20px;
+        }
+
+        .site-footer a {
+            color: #ffd5d5;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-divider {
+            border-color: rgba(255, 255, 255, 0.3);
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    @* ── Navbar injected by each child layout ── *@
+    @await RenderSectionAsync("Navbar", required: false)
+
+    @* ── Page Content ── *@
+    <div class="page-body">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* ── Footer ── *@
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">✈️ Flight App</h6>
+                    <p class="small mb-1">Your trusted flight booking platform.</p>
+                    <p class="small">Connecting the world, one flight at a time.</p>
+                </div>
+
+                <div class="col-md-4 mb-3 text-center">
+                    <h6 class="fw-bold">📬 Contact Us</h6>
+                    <p class="small mb-1">📧 support&#64;flightapp.com</p>
+                    <p class="small mb-1">📞 +1 (800) 123-4567</p>
+                    <p class="small">📍 123 Skyway Ave, Chicago, IL 60601</p>
+                </div>
+
+                <div class="col-md-4 mb-3 text-md-end">
+                    <h6 class="fw-bold">🔗 Quick Links</h6>
+                    <p class="small mb-1">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </p>
+                    <p class="small mb-1">
+                        <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <hr class="footer-divider" />
+
+            <div class="text-center small">
+                &copy; @DateTime.Now.Year Flight App. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

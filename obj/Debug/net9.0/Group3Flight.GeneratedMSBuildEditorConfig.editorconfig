@@ -1,0 +1,117 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Group3Flight
+build_property.RootNamespace = Group3Flight
+build_property.ProjectDir = C:\Users\ramch\Desktop\Group3Flight\Group3Flight\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\ramch\Desktop\Group3Flight\Group3Flight
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Admin/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Admin/Views/Users/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcTWFuYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Admin/Views/Users/RightObligations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcUmlnaHRPYmxpZ2F0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Airlines/Views/Flights/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWlybGluZXNcVmlld3NcRmxpZ2h0c1xNYW5hZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Airlines/Views/Flights/Regulation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWlybGluZXNcVmlld3NcRmxpZ2h0c1xSZWd1bGF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Airlines/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWlybGluZXNcVmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Airlines/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWlybGluZXNcVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Airlines/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWlybGluZXNcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Airlines/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWlybGluZXNcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Views/Search/Flights.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXEZsaWdodHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-ryyx3dfpi0
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Areas/Airlines/Views/Shared/_AirlinesLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWlybGluZXNcVmlld3NcU2hhcmVkXF9BaXJsaW5lc0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-v0azcahkbs
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5k224i6642
+
+[C:/Users/ramch/Desktop/Group3Flight/Group3Flight/Views/Shared/_MainLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-85rmzwr1su
