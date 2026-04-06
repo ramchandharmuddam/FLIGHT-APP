@@ -1,0 +1,163 @@
+﻿@{
+    string controller = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    string action = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Flight</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .page-body {
+            flex: 1;
+            margin-top: 70px;
+        }
+        nav .nav-link.active {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            border-bottom: 3px solid white !important;
+            padding-bottom: 2px !important;
+        }
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        .navbar .nav-link:hover {
+            color: #ffffff !important;
+        }
+        .site-footer {
+            background-color: #c0392b;
+            color: white;
+            padding: 35px 0 20px;
+        }
+        .site-footer a {
+            color: #ffd5d5;
+            text-decoration: none;
+        }
+        .site-footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        .footer-divider {
+            border-color: rgba(255, 255, 255, 0.3);
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
+        <div class="container-fluid px-4">
+
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/FlightLogo.png" class="img-fluid bg-white" width="40" />
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#userNavbar"
+                    aria-controls="userNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="userNavbar">
+                <ul class="navbar-nav me-auto mb-0">
+                    <li class="nav-item">
+                        <a class="nav-link @(controller == "Home" && action == "Index" ? "active" : "")"
+                           asp-area="" asp-controller="Home" asp-action="Index">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(controller == "Search" && action == "Flights" ? "active" : "")"
+                           asp-area="" asp-controller="Search" asp-action="Flights">
+                            Search Flights
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(controller == "Home" && action == "Privacy" ? "active" : "")"
+                           asp-area="" asp-controller="Home" asp-action="Privacy">
+                            Privacy
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-0">
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           asp-area="Admin" asp-controller="Home" asp-action="Dashboard">
+                            Admin
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           asp-area="Airlines" asp-controller="Home" asp-action="Dashboard">
+                            Airlines
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-body">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">✈️ Flight App</h6>
+                    <p class="small mb-1">Your trusted flight booking platform.</p>
+                    <p class="small">Connecting the world, one flight at a time.</p>
+                </div>
+                <div class="col-md-4 mb-3 text-center">
+                    <h6 class="fw-bold">📬 Contact Us</h6>
+                    <p class="small mb-1">📧 support&#64;flightapp.com</p>
+                    <p class="small mb-1">📞 +1 (800) 123-4567</p>
+                    <p class="small">📍 123 Skyway Ave, Chicago, IL 60601</p>
+                </div>
+                <div class="col-md-4 mb-3 text-md-end">
+                    <h6 class="fw-bold">🔗 Quick Links</h6>
+                    <p class="small mb-1">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </p>
+                    <p class="small mb-1">
+                        <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+            <hr class="footer-divider" />
+            <div class="text-center small">
+                &copy; @DateTime.Now.Year Flight App. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
