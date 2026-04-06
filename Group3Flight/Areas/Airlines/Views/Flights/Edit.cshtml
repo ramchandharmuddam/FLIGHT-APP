@@ -1,0 +1,158 @@
+﻿@model Group3Flight.Models.Flight
+
+@{
+    string title = ViewBag.Action + " Flight";
+    ViewData["Title"] = title;
+}
+
+
+<div class="form-container">
+    <div class="form-card">
+        <div class="form-header">
+            @if (ViewBag.Action == "Edit")
+            {
+                <div class="form-icon">✏️</div>
+                <h2>Edit Flight</h2>
+            }
+            else
+            {
+                <h2>Add New Flight</h2>
+            }
+        </div>
+
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="All" class="validation-summary-errors"></div>
+
+            <div class="form-grid-two">
+                <div class="form-group-modern">
+                    <label asp-for="FlightCode" class="form-label-modern">
+                        <span class="label-icon">ID</span>
+                        <span class="required-field">Flight Code</span>
+                    </label>
+                    @if (ViewBag.Action == "Edit")
+                    {
+                        <input asp-for="FlightCode" class="form-control-modern" readonly />
+                        <small class="text-danger-modern">Flight code cannot be changed</small>
+                    }
+                    else
+                    {
+                        <input asp-for="FlightCode" class="form-control-modern" placeholder="e.g., AA1234" />
+                    }
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="Date" class="form-label-modern">
+                        <span class="required-field">Departure Date</span>
+                    </label>
+                    <input asp-for="Date" type="date" class="form-control-modern" />
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="From" class="form-label-modern">
+                        <span class="required-field">Departure City</span>
+                    </label>
+                    <select asp-for="From" class="form-select-modern">
+                        <option value="">-- Select Departure --</option>
+                        <option>New York</option>
+                        <option>Dallas</option>
+                        <option>Chicago</option>
+                        <option>Los Angeles</option>
+                        <option>Dubai</option>
+                        <option>London</option>
+                    </select>
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="To" class="form-label-modern">
+                        <span class="required-field">Arrival City</span>
+                    </label>
+                    <select asp-for="To" class="form-select-modern">
+                        <option value="">-- Select Destination --</option>
+                        <option>New York</option>
+                        <option>Dallas</option>
+                        <option>Chicago</option>
+                        <option>Los Angeles</option>
+                        <option>San Francisco</option>
+                        <option>London</option>
+                    </select>
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="DepartureTime" class="form-label-modern">
+                        <span class="required-field">Departure Time</span>
+                    </label>
+                    <input asp-for="DepartureTime" type="time" class="form-control-modern" />
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="ArrivalTime" class="form-label-modern">
+                        <span class="required-field">Arrival Time</span>
+                    </label>
+                    <input asp-for="ArrivalTime" type="time" class="form-control-modern" />
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="CabinType" class="form-label-modern">
+                        <span class="required-field">Cabin Type</span>
+                    </label>
+                    <select asp-for="CabinType" class="form-select-modern">
+                        <option value="">-- Select Cabin Type --</option>
+                        <option>Basic Economy</option>
+                        <option>Economy</option>
+                        <option>Economy Plus</option>
+                        <option>Business</option>
+                    </select>
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="AircraftType" class="form-label-modern">
+                        <span class="required-field">Aircraft Type</span>
+                    </label>
+                    <select asp-for="AircraftType" class="form-select-modern">
+                        <option value="">-- Select Aircraft Type --</option>
+                        <option>Airbus 320 family series</option>
+                        <option>Boeing 737 family series</option>
+                        <option>Airbus A220, Embraer E-Jets/E2</option>
+                        <option>COMAC C919</option>
+                    </select>
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="Emission" class="form-label-modern">
+                        Carbon Emission (kg CO₂)
+                    </label>
+                    <input asp-for="Emission" type="number" step="0.1" class="form-control-modern" placeholder="e.g., 150.5" />
+                    <small class="text-muted">Estimated carbon emission for this flight</small>
+                </div>
+
+                <div class="form-group-modern">
+                    <label asp-for="Price" class="form-label-modern">
+                        <span class="required-field">Ticket Price ($)</span>
+                    </label>
+                    <input asp-for="Price" type="number" step="0.01" class="form-control-modern" placeholder="e.g., 299.99" />
+                </div>
+
+                <div class="form-group-modern form-full-width">
+                    <label asp-for="AirlineId" class="form-label-modern">
+                        <span class="required-field">Airline</span>
+                    </label>
+                    <select asp-for="AirlineId" asp-items="ViewBag.Airlines" class="form-select-modern">
+                        <option value="">-- Select Airline --</option>
+                    </select>
+                    <span asp-validation-for="AirlineId" class="text-danger-modern"></span>
+                </div>
+            </div>
+
+            <input type="hidden" asp-for="FlightId" />
+
+            <div class="form-actions">
+                <button type="submit" class="btn-save">
+                    Save Flight
+                </button>
+                <a asp-controller="Home" asp-action="Index" class="btn-cancel-form">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

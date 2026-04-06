@@ -1,0 +1,66 @@
+﻿@model Group3Flight.Models.Flight
+@{
+    ViewData["Title"] = "Delete Flight";
+}
+
+<div class="delete-container">
+    <div class="delete-card">
+        <div class="delete-header">
+            <h2>Confirm Deletion</h2>
+            <p>This action cannot be undone. Please confirm you want to delete this flight.</p>
+        </div>
+
+        <div class="flight-info-card">
+            <div class="flight-code-large">
+                @Model.FlightCode
+            </div>
+
+            <div class="flight-route-info">
+                <div class="route-from">
+                    @Model.From
+                </div>
+                <div class="route-to">
+                    @Model.To
+                </div>
+            </div>
+
+            <div class="flight-details-info">
+                <div class="info-badge">
+                    @Model.Date.ToString("MMM dd, yyyy")
+                </div>
+                <div class="info-badge">
+                    @Model.DepartureTime
+                </div>
+                <div class="info-badge">
+                    @Model.CabinType
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-message">
+            <div class="warning-emoji">!</div>
+            <div class="warning-text">
+                <strong>Warning:</strong> This will permanently remove the flight from the system.
+                This action cannot be reversed.
+            </div>
+        </div>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" name="id" value="@Model.FlightId" />
+
+            <div class="delete-actions">
+                <button type="submit" class="btn-delete">
+                    Permanently Delete
+                </button>
+                <!-- Fixed: points to Home controller in Airlines area -->
+                <a asp-area="Airlines" asp-controller="Home" asp-action="Index" class="btn-cancel-delete">
+                    Cancel
+                </a>
+            </div>
+        </form>
+
+        <div class="additional-info">
+            <span>Flight ID: @Model.FlightId</span>
+        </div>
+    </div>
+</div>

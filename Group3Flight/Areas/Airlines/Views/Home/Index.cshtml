@@ -1,0 +1,110 @@
+﻿@model List<Group3Flight.Models.Flight>
+
+@{
+    ViewData["Title"] = "Flights Management";
+}
+
+
+<div class="flightslist-container">
+    <div class="flightslist-card">
+        <div class="flightslist-header">
+            <div class="header-title">
+                <h2>Flights Management</h2>
+            </div>
+            <div class="header-stats">
+                <strong>@Model.Count</strong> Total Flights
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <a asp-controller="Flights" asp-action="Add" class="btn-add-flight">
+                Add New Flight
+            </a>
+            <div>
+                <a href="?sort=code" class="btn-export" style="text-decoration: none;">Sort by Code</a>
+                <a href="?sort=date" class="btn-export" style="text-decoration: none;">Sort by Date</a>
+            </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table class="flights-management-table">
+                <thead>
+                    <tr>
+                        <th>Flight Code</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Date</th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Cabin</th>
+                        <th>Aircraft</th>
+                        <th>Price ($)</th>
+                        <th>Airline</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var flight in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span class="flight-code-badge-list">@flight.FlightCode</span>
+                            </td>
+                            <td><strong>@flight.From</strong></td>
+                            <td><strong>@flight.To</strong></td>
+                            <td>@flight.Date.ToString("yyyy-MM-dd")</td>
+                            <td>@flight.DepartureTime.ToString(@"hh\:mm")</td>
+                            <td>@flight.ArrivalTime.ToString(@"hh\:mm")</td>
+                            <td>
+                                @{
+                                    string cabinClass = flight.CabinType?.ToString().ToLower().Replace(" ", "-") ?? "economy";
+                                }
+                                <span class="cabin-badge cabin-badge-@cabinClass">
+                                    @flight.CabinType
+                                </span>
+                            </td>
+                            <td>@flight.AircraftType</td>
+                            <td><span class="price-value">$@flight.Price.ToString("F2")</span></td>
+                            <td>
+                                <img src="~/images/@flight.Airline.ImageName"
+                                     alt="@flight.Airline.ImageName"
+                                     class="airline-logo-list"
+                                     title="@flight.Airline.ImageName?.Replace(".jpg", "").Replace(".png", "")" />
+                            </td>
+                            <td>
+                                <div class="action-buttons-list">
+                                    <a asp-controller="Flights" asp-action="Edit"
+                                       asp-route-id="@flight.FlightId" class="btn-edit">
+                                        Edit
+                                    </a>
+                                    <a asp-controller="Flights" asp-action="Delete"
+                                       asp-route-id="@flight.FlightId" class="btn-delete-list">
+                                        Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="empty-state-list">
+                <h3>No Flights Found</h3>
+                <p>Get started by adding your first flight.</p>
+                <a asp-controller="Flights" asp-action="Add" class="btn-add-flight">
+                    Add New Flight
+                </a>
+            </div>
+        }
+
+        <!-- Print Button -->
+        <div style="margin-top: 20px; text-align: right;">
+            <button onclick="window.print();" class="btn-export" style="border: none; cursor: pointer;">
+                Print List
+            </button>
+        </div>
+    </div>
+</div>
