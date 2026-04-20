@@ -1,0 +1,102 @@
+﻿@model Group3Flight.Models.AirlineViewModel
+@{
+    ViewData["Title"] = "My Reservations";
+}
+
+<link rel="stylesheet" href="~/css/airline-styles.css" />
+
+<div class="bookings-container">
+    <div class="bookings-card">
+        <div class="bookings-header">
+            <h2>My Reservations</h2>
+        </div>
+
+        @if (Model.FlightReservation != null && Model.FlightReservation.Any())
+        {
+            <div class="stats-banner">
+                <div>
+                    <span class="stats-count">@Model.FlightReservation.Count()</span>
+                    <span class="stats-label">Active Reservations</span>
+                </div>
+            </div>
+
+            <table class="bookings-table">
+                <thead>
+                    <tr>
+                        <th>Flight Code</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Cabin Type</th>
+                        <th>Aircraft Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var flightReservations in Model.FlightReservation)
+                    {
+                        <tr>
+                            <td>
+                                <span class="flight-code-badge">@flightReservations.Flight.FlightCode</span>
+                            </td>
+                            <td>
+                                <strong>@flightReservations.Flight.From</strong>
+                            </td>
+                            <td>
+                                <strong>@flightReservations.Flight.To</strong>
+                            </td>
+                            <td>
+                                @{
+                                    string cabinClass = flightReservations.Flight.CabinType.ToString().ToLower();
+                                }
+                                <span class="cabin-tag cabin-tag-@cabinClass">
+                                    @flightReservations.Flight.CabinType
+                                </span>
+                            </td>
+                            <td>
+                                <span class="detail-chip">@flightReservations.Flight.AircraftType</span>
+                            </td>
+                            <td>
+                                <form asp-action="CancelReservation" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@flightReservations.FlightReservationsId" />
+                                    <button type="submit" class="btn-cancel">
+                                        Cancel
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="bookings-actions">
+                <form asp-action="CancelAllReservations" method="post">
+                    <button type="submit" class="btn-cancel-all">
+                        Cancel All Reservations
+                    </button>
+                </form>
+
+                <a asp-action="Index" class="btn-back-home"
+                   asp-route-activeFromKey="@Model.ActiveFromKey"
+                   asp-route-activeToKey="@Model.ActiveToKey"
+                   asp-route-activeDepartureDate="@Model.ActiveDepartureDate"
+                   asp-route-activeCabinType="@Model.ActiveCabinType">
+                    Back to Home
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state-bookings">
+                <h3>No Flight Reservations Yet</h3>
+                <p>You haven't made any flight reservations.</p>
+                <a asp-action="Index" class="btn-back-home"
+                   asp-route-activeFromKey="@Model.ActiveFromKey"
+                   asp-route-activeToKey="@Model.ActiveToKey"
+                   asp-route-activeDepartureDate="@Model.ActiveDepartureDate"
+                   asp-route-activeCabinType="@Model.ActiveCabinType">
+                    Back to Home
+                </a>
+            </div>
+        }
+    </div>
+</div>
