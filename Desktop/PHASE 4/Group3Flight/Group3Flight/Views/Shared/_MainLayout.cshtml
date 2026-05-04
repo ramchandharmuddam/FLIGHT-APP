@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_Layout";
+    var session = new Group3Flight.Models.ExtensionMethods.FlightDataSessions(Context.Session);
+    int? count = session.GetFlightReservationsCount() ?? 0;
+    string controller = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    string action = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+}
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-danger text-white fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="~/images/FlightLogo.png" class="img-fluid bg-white" width="40" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link @(controller == "Home" && action == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link @(controller == "Search" && action == "Flights" ? "active" : "")" asp-area="" asp-controller="Search" asp-action="Flights">Search Flights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link @(controller == "Home" && action == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    <a asp-controller="Home" asp-action="FlightReservations"
+                       class="nav-link nav-link @(controller == "Home" && action == "FlightReservations" ? "active" : "") text-white">
+                        @if (count.HasValue)
+                        {
+                            <h5 class="p-2">
+                                <span class="badge bg-light text-black">@count</span>
+                            </h5>
+                        }
+                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link @(controller == "Admin" ? "active" : "")"
+                           asp-area="Admin" asp-controller="Home" asp-action="Dashboard">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(controller == "Airlines" ? "active" : "")"
+                           asp-area="Airlines" asp-controller="Home" asp-action="Index">Airlines</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="pt-5">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+</div>
+<main>
+    @RenderBody()
+</main>
+

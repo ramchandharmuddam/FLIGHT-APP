@@ -1,0 +1,113 @@
+﻿@model Group3Flight.Models.ViewModels.AirlineViewModel
+@{
+    ViewData["Title"] = "Flight Details";
+}
+
+<div class="flight-details-container">
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="flight-badge">@Model.Flights.FlightCode</div>
+            <h1 class="flight-title">Journey Details</h1>
+            <p class="flight-date">@Model.Flights.Date.ToString("dddd, MMMM dd, yyyy")</p>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="flight-card">
+            <div class="route-visualization">
+                <div class="route-point">
+                    <div class="city-code">@Model.Flights.From</div>
+                    <div class="city-label">Departure</div>
+                </div>
+                <div class="route-line">
+                    <div class="dashed-line"></div>
+                </div>
+                <div class="route-point">
+                    <div class="city-code">@Model.Flights.To</div>
+                    <div class="city-label">Arrival</div>
+                </div>
+            </div>
+
+            <!-- Time Information -->
+            <div class="time-grid">
+                <div class="time-card">
+                    <div class="time-label">Departure Time</div>
+                    <div class="time-value">@Model.Flights.DepartureTime</div>
+                </div>
+                <div class="time-card">
+                    <div class="time-label">Duration</div>
+                    <div class="time-value">
+                        @{
+                            var duration = Model.Flights.ArrivalTime - Model.Flights.DepartureTime;
+                            if (duration.TotalMinutes < 0)
+                            {
+                                duration = duration.Add(TimeSpan.FromHours(24));
+                            }
+                        }
+                        @duration.ToString(@"hh\:mm") hours
+                    </div>
+                </div>
+                <div class="time-card">
+                    <div class="time-label">Arrival Time</div>
+                    <div class="time-value">@Model.Flights.ArrivalTime</div>
+                </div>
+            </div>
+
+            <!-- Flight Details Grid -->
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-content">
+                        <div class="detail-label">Aircraft Type</div>
+                        <div class="detail-value">@Model.Flights.AircraftType</div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-content">
+                        <div class="detail-label">Cabin Class</div>
+                        <div class="detail-value cabin-@Model.Flights.CabinType.ToLower()">@Model.Flights.CabinType</div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-content">
+                        <div class="detail-label">Carbon Emission</div>
+                        <div class="detail-value">@Model.Flights.Emission kg CO₂</div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-content">
+                        <div class="detail-label">Ticket Price</div>
+                        <div class="detail-value price-tag">$@Model.Flights.Price</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a asp-action="Index"
+               asp-route-activeFromKey="@Model.ActiveFromKey"
+               asp-route-activeToKey="@Model.ActiveToKey"
+               asp-route-activeDepartureDate="@Model.ActiveDepartureDate"
+               asp-route-activeCabinType="@Model.ActiveCabinType"
+               class="btn-back">
+                Return to Search
+            </a>
+            <a asp-action="FlightReserve" asp-route-id="@Model.Flights.FlightId" class="btn-book">
+                Continue to Reserve
+                <span class="btn-arrow">→</span>
+            </a>
+        </div>
+
+        <div class="info-card">
+            <div class="info-header">
+                <span>[i]</span>
+                <strong>Important Information</strong>
+            </div>
+            <div class="info-content">
+                <p>Check-in opens 24 hours before departure</p>
+                <p>Free cabin baggage allowance: 7kg</p>
+                <p>E-ticket will be sent to your email after booking</p>
+            </div>
+        </div>
+    </div>
+</div>
